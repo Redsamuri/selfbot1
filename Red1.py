@@ -14,7 +14,7 @@ from googletrans import Translator
 #JANGAN LUPA =>  sudo pip install bs4 => sudo pip install BeautifulSoup => sudo pip install urllib => sudo pip install requests => sudo pip install gTTS
 
 cl = PUY.LINE()
-cl.login(token="EquhPsn8LplTsfWtrRG6.Lkg8ohUsFOz1yZrKJtfpHG.FNvuuNnHIlvsnRvx05UYNJ1O7hPI5KOh6rA7oVPQB2k=")
+cl.login(token="You token")
 cl.loginResult()
 
 
