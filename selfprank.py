@@ -14,15 +14,19 @@ from googletrans import Translator
 #JANGAN LUPA =>  sudo pip install bs4 => sudo pip install BeautifulSoup => sudo pip install urllib => sudo pip install requests => sudo pip install gTTS
 
 cl = PUY.LINE()
-cl.login(token="You token")
+cl.login(token="EquVoMnyvdI8p3RlkCt6.Lkg8ohUsFOz1yZrKJtfpHG.boJsv4URU2/6laSKrxmeyRSnry3jgzqNvzNjsu87ykM=")
 cl.loginResult()
 
-print "\n[RED LOGIN SELESAI]"
+#cl = PUY.LINE()
+#cl.login(token="EpHTw46Q4ywGh0hYMHq1.SQs6jlixSB1Km2QkJmOrOq.5Z4fI8DX/csv1FnJxz6jQRWd1BmoRhZBro4rH0hN8cA=")
+#cl.loginResult()
+
+print "\n[ ลอคอินRedselfbotสำเร็จแล้ว ]"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpmsg ="""╔═════════════
-(╣••ŔèďBøť••╣)
+(╣••ґ̰̰̈́é∂̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́••╣)
 ║═════════════
 ╠-> google (text)
 ╠-> playstore (text)
@@ -35,31 +39,32 @@ helpmsg ="""╔═════════════
 ╠-> runtime
 ╠-> Restart
 ╠-> lirik (text)
-╠-> Mention
-╠-> setpoint on/off
-╠-> viewlastseen
-╠-> protect on/off
-╠-> qr on/off
-╠-> invite on/off
-╠-> Cancel on/off
+╠-> ใครแทค
+╠-> จับ/เลิกจับ
+╠-> ขอดู
+╠-> เปิดกัน/ปิดกัน
+╠-> เปิดลิ้ง/ปิดลิ้ง
+╠-> กันเชิญ/ปิดกันเชิญ
+╠-> กันยก/ปิดกันยก
 ╠-> Simisimi:on/off
 ╠-> Read on/off
-╠-> Getinfo @
-╠-> Getcontact @
-╠-> Ulti @
-╠-> speed
-╠-> Friendlist
-╠-> id@en
-╠-> en@id
-╠-> id@jp\n                 「OR」\n╠-> helppro\n╠-> helpself\n╠-> helpset\n╠-> helpgrup\n╠-> helptranslate
+╠-> สอดแนม @
+╠-> ส่องคท @
+╠-> ทดสอบ @
+╠-> วัดรอบ
+╠-> เพื่อน
+╠-> ไวรัส
+╠-> [id@en]
+╠-> en@id]
+╠-> [id@jp]\n                 「OR」\n╠-> help1\n╠-> help2\n╠-> help3\n╠-> help4\n╠-> help5
 ╚═════════════════"""
 
 helppro ="""
 ╠═════════════════
-╠➩ protect on/off
-╠➩ qr on/off
-╠➩ invite on/off
-╠➩ cancel on/off
+╠➩ เปิดกัน/ปิดกัน
+╠➩ กันลิ้ง/ปิดกันลิ้ง
+╠➩ กันเชิญ/ปิดกันเชิญ
+╠➩ กันยก/ปิดกันยก
 ╚═════════════════"""
 
 helpself ="""
@@ -69,31 +74,36 @@ helpself ="""
 ╠➩Mybio:
 ╠➩Mypict
 ╠➩Mycover
-╠➩My copy @
-╠➩My backup
+╠➩เลียนแบบ @
+╠➩คืนร่าง
+╠➩อ่านคท/ปิดคท
+╠➩ดึง
 ╠➩Getgroup image
 ╠➩Getmid @
-╠➩Getprofile @
-╠➩Getinfo @
-╠➩Getname @
-╠➩Getbio @
-╠➩Getpict @
+╠➩ส่องโปรไฟล @
+╠➩สอดแนม @
+╠➩ส่องชื่อ @
+╠➩ส่องตัส @
+╠➩ส่องรูป @
 ╠➩Getcover @
-╠➩Mention
-╠➩setpoint on/off
-╠➩viewlastseen
+╠➩ใครแทค
+╠➩จับ/เลิกจับ
+╠➩ขอดู
 ╠➩Micadd @
 ╠➩Micdel @
 ╚═════════════════"""
 
 helpset ="""
 ╠═════════════════
-╠->contact on/off
+╠->เช็ค
+╠->เปิดแชร์/ปิดแชร์
+╠->เปิดเม้น/ปิดเม้น
+╠->เปิดคท/ปิดคท
 ╠->autojoin on/off
-╠->auto leave on/off
-╠->autoadd on/off
+╠->autoleave on/off
+╠->เปิดแอด/ปิดแอด
 ╠->like friend
-╠->link on
+╠->เปิดไลค์/ปิดไลค์
 ╠->respon on/off
 ╠->read on/off
 ╠->simisimi on/off
@@ -101,18 +111,20 @@ helpset ="""
 
 helpgrup ="""
 ╠═════════════════
-╠->Link on
+╠->เปิดลิ้ง/ปิดลิ้ง
 ╠->Url
 ╠->Cancel
 ╠->Gcreator
-╠->Kick @
-╠->Ulti @
+╠->หวด @
+╠->ปวดตับ
+╠->สวัสดี @
+╠->ทดสอบ @
 ╠->Gname:
 ╠->Gbroadcast:
 ╠->Cbroadcast:
 ╠->Infogrup
 ╠->Gruplist
-╠->Friendlist
+╠->เพื่อน
 ╠->Blacklist
 ╠->Ban @
 ╠->Unban @
@@ -124,25 +136,26 @@ helpgrup ="""
 
 helptranslate ="""
 ╠═════════════════
-╠->Id@en
-╠->En@id
-╠->Id@jp
-╠->Jp@id
-╠->Id@th
-╠->Th@id
-╠->Id@ar
-╠->Ar@id
-╠->Id@ko
-╠->Ko@id
-╠->Say-id
-╠->Say-en
-╠->Say-jp
+╠->[Id@en]
+╠->[En@id]
+╠->[Id@jp]
+╠->[Jp@id]
+╠->[Id@th]
+╠->[Th@id]
+╠->[Id@ar]
+╠->[Ar@id]
+╠->[Id@ko]
+╠->[Ko@id]
+╠->[Say-id]
+╠->[Say-en]
+╠->[Say-jp]
 ╚═════════════════"""
 
-KAC=[cl]
+KAC=[cl,cl]
 mid = cl.getProfile().mid
-Bots=[mid]
-admin=["You mid"]
+mid = cl.getProfile().mid
+Bots=[mid,mid]
+admin=["u94a1bc387b927e86756334648d314f86","u5b35c9714ca359616335efed888537a8","ube52b8931eee2e15a1b689377e3e5637","u1aedef8b888ae108d96bacbc5054e679","u99cde2e2a4a4b11bfd4cc418913e8986","u1865fbab05ea885ca7bd481ec35c9a1d","u46a050ebcc66a90b47fae6256547cc53","u656b0ca994a1c9b462f9feb6f5ae3177","ub5abe828cd964292195c3c59d6322033""uc360193fd87f05f352673cadbd9f2947","u3a737b8dc7135de09ceb6741c46d709f","ub2a4ba24b217b1bd64336a8a8cca11a1","uecdd917f87c7a68b90fe3055cd79fb48"]
 
 wait = {
     "likeOn":False,
@@ -159,15 +172,15 @@ wait = {
     'leaveRoom':True,
     'timeline':False,
     'autoAdd':True,
-    'message':"""THANG FOR ADD ME """,
+    'message':"""🌾(●´з`)♡🌹แอดมาทำไมคับ 🌸แอดมาจีบรึแอดมารัน🌹(´ε｀ )♡🌾""",
     "lang":"JP",
-    "comment":"",
+    "comment":"...by redbot",
     "commentOn":False,
     "commentBlack":{},
     "wblack":False,
     "dblack":False,
     "clock":False,
-    "cNames":"",
+    "cNames":" ─┅͜͡✥ه﷽ Red﷽ه✥͜͡",
     "cNames":"",
     "blacklist":{},
     "wblacklist":False,
@@ -423,7 +436,7 @@ def bot(op):
                     pass
                 else:
                     cl.sendText(op.param1,str(wait["message"]))
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.from_ in mimic["target"] and mimic["status"] == True and mimic["target"][msg.from_] == True:
                     text = msg.text
@@ -442,7 +455,7 @@ def bot(op):
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == admin:
+                if msg.from_ ==  admin:
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
@@ -464,7 +477,7 @@ def bot(op):
                     text = msg.text
                     if text is not None:
                         cl.sendText(msg.to,text)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.to in settings["simiSimi"]:
                 if settings["simiSimi"][msg.to] == True:
@@ -571,7 +584,7 @@ def bot(op):
                     cl.sendChatChecked(msg.from_,msg.id)
                 else:
                     cl.sendChatChecked(msg.to,msg.id)
-        if op.type == 25:
+        if op.type == 26:
             msg = op.message
             if msg.contentType == 13:
                 if wait["wblack"] == True:
@@ -638,46 +651,46 @@ def bot(op):
                     cl.sendText(msg.to,helpmsg)
                 else:
                     cl.sendText(msg.to,helpmsg)
-            elif msg.text.lower() == 'help protect':
+            elif msg.text.lower() == 'help1':
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helppro)
                 else:
                     cl.sendText(msg.to,helppro)
-            elif msg.text.lower() == 'help self':
+            elif msg.text.lower() == 'help2':
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helpself)
                 else:
                     cl.sendText(msg.to,helpself)
-            elif msg.text.lower() == 'help grup':
+            elif msg.text.lower() == 'help3':
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helpgrup)
                 else:
                     cl.sendText(msg.to,helpgrup)
-            elif msg.text.lower() == 'help set':
+            elif msg.text.lower() == 'help4':
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helpset)
                 else:
                     cl.sendText(msg.to,helpset)
-            elif msg.text.lower() == 'help translate':
+            elif msg.text.lower() == 'help5':
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helptranslate)
                 else:
                     cl.sendText(msg.to,helptranslate)
             elif msg.text in ["Sp","Speed","speed"]:
                 start = time.time()
-                cl.sendText(msg.to, "「Come Here」")
+                cl.sendText(msg.to, "「ความเร็วของเอว」")
                 elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                cl.sendText(msg.to, "%s/ต่อวินาที😆😆" % (elapsed_time))
                 
-            elif msg.text == ".Speed":
-                    cl.sendText(msg.to,"「Come Here」")
+            elif msg.text == "วัดรอบ":
+                    cl.sendText(msg.to,"「 วัดความเร็ว」")
                     start = time.time()
                     for i in range(3000):
                         1+1
                     elsp = time.time() - start
-                    cl.sendText(msg.to,"%s/Detikี" % (elsp))    
+                    cl.sendText(msg.to,"%s/ต่อวินาที" % (elsp))    
                 
-            elif msg.text.lower() == 'crash':
+            elif msg.text.lower() == 'ไวรัส':
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': "u1f41296217e740650e0448b96851a3e2',"}
                 cl.sendMessage(msg)
@@ -693,7 +706,7 @@ def bot(op):
                     cl.sendText(msg.to, "https://www.facebook.com" + b)
                     cl.sendText(msg.to,"「 Mencari 」\n" "Type:Mencari Info\nStatus: Sukses")    
 #========================== FOR COMMAND BOT STARTING =============================#
-            elif msg.text.lower() == 'contact on':
+            elif msg.text.lower() == 'เปิดคท':
                 if wait["contact"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"ɕσηϯαɕϯ ςεϯ ϯσ ση")
@@ -705,7 +718,7 @@ def bot(op):
                         cl.sendText(msg.to,"ɕσηϯαɕϯ ςεϯ ϯσ ση")
                     else:
                         cl.sendText(msg.to,"ɕσηϯαɕϯ ςεϯ ϯσ ση")
-            elif msg.text.lower() == 'contact off':
+            elif msg.text.lower() == 'ปิดคท':
                 if wait["contact"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"ɕσηϯαɕϯ ςεϯ ϯσ σƒƒ")
@@ -717,7 +730,7 @@ def bot(op):
                         cl.sendText(msg.to,"ɕσηϯαɕϯ ςεϯ ϯσ σƒƒ")
                     else:
                         cl.sendText(msg.to,"ɕσηϯαɕϯ αʆɾεαδψ σƒƒ")
-            elif msg.text.lower() == 'protect on':
+            elif msg.text.lower() == 'เปิดกัน':
                 if wait["protect"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protecion Already On")
@@ -729,7 +742,7 @@ def bot(op):
                         cl.sendText(msg.to,"Protecion Already On")
                     else:
                         cl.sendText(msg.to,"Protecion Already On")
-            elif msg.text.lower() == 'qr on':
+            elif msg.text.lower() == 'กันลิ้ง':
                 if wait["linkprotect"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection Qr already On")
@@ -741,7 +754,7 @@ def bot(op):
                         cl.sendText(msg.to,"Protection Qr already On")
                     else:
                         cl.sendText(msg.to,"Protection Qr already On")
-            elif msg.text.lower() == 'invite on':
+            elif msg.text.lower() == 'กันเชิญ':
                 if wait["inviteprotect"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection Invite already On")
@@ -753,7 +766,7 @@ def bot(op):
                         cl.sendText(msg.to,"ρяσтє¢тισи ιиνιтє ѕєт тσ σи")
                     else:
                         cl.sendText(msg.to,"ρяσтє¢тισи ιиνιтє αℓяєα∂у σи")
-            elif msg.text.lower() == 'cancel on':
+            elif msg.text.lower() == 'กันยก':
                 if wait["cancelprotect"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"¢αи¢єℓ ρяσтє¢тισи ѕєт тσ σи")
@@ -789,7 +802,7 @@ def bot(op):
                         cl.sendText(msg.to,"αυтσʝσιи ѕєт тσ σff")
                     else:
                         cl.sendText(msg.to,"αυтσʝσιи αℓяєα∂у σff")
-            elif msg.text.lower() == 'protect off':
+            elif msg.text.lower() == 'ปิดกัน':
                 if wait["protect"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection already Off")
@@ -801,7 +814,7 @@ def bot(op):
                         cl.sendText(msg.to,"ρяσтє¢тισи ѕєт тσ σff")
                     else:
                         cl.sendText(msg.to,"ρяσтє¢тισи αℓяєα∂у σff")
-            elif msg.text.lower() == 'qr off':
+            elif msg.text.lower() == 'ปิดกันลิ้ง':
                 if wait["linkprotect"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection Qr already off")
@@ -813,7 +826,7 @@ def bot(op):
                         cl.sendText(msg.to,"Protection Qr already Off")
                     else:
                         cl.sendText(msg.to,"Protection Qr already Off")
-            elif msg.text.lower() == 'invit off':
+            elif msg.text.lower() == 'ปิดกันเชิญ':
                 if wait["inviteprotect"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection Invite already Off")
@@ -825,7 +838,7 @@ def bot(op):
                         cl.sendText(msg.to,"Protection Invite already Off")
                     else:
                         cl.sendText(msg.to,"Protection Invite already Off")
-            elif msg.text.lower() == 'cancel off':
+            elif msg.text.lower() == 'ปิดกันยก':
                 if wait["cancelprotect"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Protection Cancel already Off")
@@ -882,7 +895,7 @@ def bot(op):
                         cl.sendText(msg.to,"Auto Leave room set to off")
                     else:
                         cl.sendText(msg.to,"Auto Leave room already off")
-            elif msg.text.lower() == 'share on':
+            elif msg.text.lower() == 'เปิดแชร์':
                 if wait["timeline"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Share set to on")
@@ -894,7 +907,7 @@ def bot(op):
                         cl.sendText(msg.to,"Share set to on")
                     else:
                         cl.sendText(msg.to,"Share already on")
-            elif msg.text.lower() == 'share off':
+            elif msg.text.lower() == 'ปิดแชร์':
                 if wait["timeline"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Share set to off")
@@ -906,7 +919,7 @@ def bot(op):
                         cl.sendText(msg.to,"Share set to off")
                     else:
                         cl.sendText(msg.to,"Share already off")
-            elif msg.text.lower() == 'status':
+            elif msg.text.lower() == 'เช็ค':
                 md = ""
                 if wait["contact"] == True: md+="Contact:on 􀜁􀄯􏿿\n"
                 else: md+="Contact:off􀜁􀄰􏿿\n"
@@ -932,12 +945,12 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': mid}
                 cl.sendMessage(msg)
-            elif cms(msg.text,["creator","Creator"]):
+            elif cms(msg.text,["ผส","Creator"]):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033"}
                 cl.sendMessage(msg)
                 kk.sendMessage(msg)
-            elif msg.text.lower() == 'autoadd on':
+            elif msg.text.lower() == 'เปิดแอด':
                 if wait["autoAdd"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Auto add set to on")
@@ -949,7 +962,7 @@ def bot(op):
                         cl.sendText(msg.to,"Auto add set to on")
                     else:
                         cl.sendText(msg.to,"Auto add already on")
-            elif msg.text.lower() == 'autoadd off':
+            elif msg.text.lower() == 'ปิดแอด':
                 if wait["autoAdd"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Auto add set to off")
@@ -976,7 +989,7 @@ def bot(op):
                 else:
                     wait["comment"] = c
                     cl.sendText(msg.to,"Ini telah diubah\n\n" + c)
-            elif msg.text in ["Com on","Com:on","Comment on"]:
+            elif msg.text in ["Com on","เปิดเม้น","Comment on"]:
                 if wait["commentOn"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Aku berada di")
@@ -988,7 +1001,7 @@ def bot(op):
                         cl.sendText(msg.to,"Comment Actived")
                     else:
                         cl.sendText(msg.to,"Comment Has Been Active")
-            elif msg.text in ["Come off"]:
+            elif msg.text in ["Come off","ปิดเม้น"]:
                 if wait["commentOn"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Hal ini sudah off")
@@ -1258,13 +1271,13 @@ def bot(op):
                        print " Spammed !"
 
 #==============================================================================#
-            elif msg.text in ["Invite"]:
+            elif msg.text in ["ดึง"]:
                 wait["invite"] = True
-                cl.sendText(msg.to,"Send Contact")
+                cl.sendText(msg.to,"ส่งคทมาเลยลูกพี่")
             
-            elif msg.text in ["Steal contact"]:
+            elif msg.text in ["อ่านคท"]:
                 wait["contact"] = True
-                cl.sendText(msg.to,"Send Contact")
+                cl.sendText(msg.to,"จัดมาโล๊ด")
                 
             elif msg.text in ["Like:me","Like me"]: #Semua Bot Ngelike Status Akun Utama
                 print "[Command]Like executed"
@@ -1282,23 +1295,23 @@ def bot(op):
                 except:
                   pass
             
-            elif msg.text in ["Like:on","Like on"]:
+            elif msg.text in ["เปิดไลค์","Like on"]:
                 if wait["likeOn"] == True:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Done")
+                        cl.sendText(msg.to,"จัดไป")
                 else:
                     wait["likeOn"] = True
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Already")
+                        cl.sendText(msg.to,"จัดไป")
                         
-            elif msg.text in ["Like off","Like:off"]:
+            elif msg.text in ["ปิดไลค์","Like:off"]:
                 if wait["likeOn"] == False:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Done")
+                        cl.sendText(msg.to,"ตามนั้น")
                 else:
                     wait["likeOn"] = False
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Already")
+                        cl.sendText(msg.to,"ตามนั้น")
                         
             elif msg.text in ["Simisimi on","Simisimi:on"]:
                 settings["simiSimi"][msg.to] = True
@@ -1335,7 +1348,7 @@ def bot(op):
               if msg.toType == 2:
                   cl.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
 #==============================================================================#
-            elif "Clearall" in msg.text:
+            elif "ปวดตับ" in msg.text:
 				if msg.toType == 2:
 					if msg.toType == 2:
 						print "ok"
@@ -1359,9 +1372,9 @@ def bot(op):
 									kicker.kickoutFromGroup(msg.to,[target])
 									print (msg.to,[g.mid])
 								except:
-									cl.sendText(msg.to,"Group cleanse")
-									cl.sendText(msg.to,"Group cleanse")
-            elif ("Kick " in msg.text):
+									cl.sendText(msg.to,"หาหมอมั้ย")
+									cl.sendText(msg.to,"หาหมอมั้ย")
+            elif ("หวด " in msg.text):
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"] [0] ["M"]
@@ -1373,7 +1386,7 @@ def bot(op):
                        except:
                            cl.sendText(msg.to,"Error")
             
-            elif ("Ulti " in msg.text):
+            elif ("หวัดดี " in msg.text):
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"] [0] ["M"]
@@ -1384,6 +1397,7 @@ def bot(op):
                            cl.kickoutFromGroup(msg.to,[target])
                            cl.inviteIntoGroup(msg.to,[target])
                            cl.cancelGroupInvitation(msg.to,[target])
+                           cl.inviteIntoGroup(msg.to,[target])
                        except:
                            cl.sendText(msg.to,"Error")
             
@@ -1414,7 +1428,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Invitan tidak ada")
             
-            elif msg.text.lower() == 'link on':
+            elif msg.text.lower() == 'เปิดลิ้ง':
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     group.preventJoinByTicket = False
@@ -1429,7 +1443,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Can not be used for groups other than")
             
-            elif msg.text.lower() == 'link off':
+            elif msg.text.lower() == 'ปิดลิ้ง':
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     group.preventJoinByTicket = True
@@ -1471,7 +1485,7 @@ def bot(op):
                     cl.sendMessage(M)
                     cl.sendText(msg.to,"Creator Grup")
             
-            elif msg.text.lower() == 'invite:gcreator':
+            elif msg.text.lower() == 'ดึง:ผส':
                 if msg.toType == 2:
                        ginfo = cl.getGroup(msg.to)
                        try:
@@ -1540,7 +1554,7 @@ def bot(op):
                     except:
                         pass
 #==============================================================================#
-            elif "mention" == msg.text.lower():
+            elif "ใครแทค" == msg.text.lower():
                  group = cl.getGroup(msg.to)
                  nama = [contact.mid for contact in group.members]
                  nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
@@ -1576,7 +1590,7 @@ def bot(op):
                  cnt.to = msg.to
                  cl.sendMessage(cnt)
 
-            elif "setpoint on" == msg.text.lower():
+            elif "จับ" == msg.text.lower():
                 if msg.to in wait2['readPoint']:
                         try:
                             del wait2['readPoint'][msg.to]
@@ -1590,7 +1604,7 @@ def bot(op):
                         wait2['ROM'][msg.to] = {}
                         with open('sider.json', 'w') as fp:
                          json.dump(wait2, fp, sort_keys=True, indent=4)
-                         cl.sendText(msg.to,"Setpoint already on")
+                         cl.sendText(msg.to,"จับตาดูคนแอบเรียบร้อย")
                 else:
                     try:
                             del wait2['readPoint'][msg.to]
@@ -1604,13 +1618,13 @@ def bot(op):
                     wait2['ROM'][msg.to] = {}
                     with open('sider.json', 'w') as fp:
                      json.dump(wait2, fp, sort_keys=True, indent=4)
-                     cl.sendText(msg.to, "Set reading point:\n" + datetime.now().strftime('%H:%M:%S'))
+                     cl.sendText(msg.to, "จับตาดูคนแอบเรียบร้อย:\n" + datetime.now().strftime('%H:%M:%S'))
                      print wait2
 
                     
-            elif "setpoint off" == msg.text.lower():
+            elif "เลิกจับ" == msg.text.lower():
                 if msg.to not in wait2['readPoint']:
-                    cl.sendText(msg.to,"Setpoint already off")
+                    cl.sendText(msg.to,"เลิกจับตามองแระ:")
                 else:
                     try:
                             del wait2['readPoint'][msg.to]
@@ -1618,11 +1632,11 @@ def bot(op):
                             del wait2['setTime'][msg.to]
                     except:
                           pass
-                    cl.sendText(msg.to, "Delete reading point:\n" + datetime.now().strftime('%H:%M:%S'))
+                    cl.sendText(msg.to, "เลิกจับตามองแระ:\n" + datetime.now().strftime('%H:%M:%S'))
 
 
                     
-            elif "viewlastseen" == msg.text.lower():
+            elif "ขอดู" == msg.text.lower():
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                              cl.sendText(msg.to, "Reader:\nNone")
@@ -1874,7 +1888,7 @@ def bot(op):
                         cl.sendText(msg.to, g.mid)
                     else:
                         pass
-            elif "Getinfo" in msg.text:
+            elif "สอดแนม " in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = cl.getContact(key1)
@@ -1883,7 +1897,7 @@ def bot(op):
                     cl.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nHeader :\n" + str(cu))
                 except:
                     cl.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\n" + str(cu))
-            elif "Getbio" in msg.text:
+            elif "ส่องตัส" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = cl.getContact(key1)
@@ -1892,7 +1906,7 @@ def bot(op):
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
-            elif "Getname" in msg.text:
+            elif "ส่องชื่อ" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = cl.getContact(key1)
@@ -1901,7 +1915,7 @@ def bot(op):
                     cl.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
                 except:
                     cl.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
-            elif "Getprofile" in msg.text:
+            elif "ส่องโปรไฟล" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = cl.getContact(key1)
@@ -1916,14 +1930,14 @@ def bot(op):
                     cl.sendImageWithURL(msg.to,path)
                 except:
                     pass
-            elif "Getcontact" in msg.text:
+            elif "ส่องคท" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]                
                 mmid = cl.getContact(key1)
                 msg.contentType = 13
                 msg.contentMetadata = {"mid": key1}
                 cl.sendMessage(msg)
-            elif "Getpict @" in msg.text:
+            elif "ส่องรูป @" in msg.text:
                 print "[Command]dp executing"
                 _name = msg.text.replace("Getpict @","")
                 _nametarget = _name.rstrip('  ')
@@ -2033,7 +2047,7 @@ def bot(op):
                 group = cl.getGroup(msg.to)
                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                 cl.sendText(msg.to,path)
-            elif "Mycopy @" in msg.text:
+            elif "เลียนแบบ @" in msg.text:
                    print "[COPY] Ok"
                    _name = msg.text.replace("Mycopy @","")
                    _nametarget = _name.rstrip('  ')
@@ -2048,14 +2062,14 @@ def bot(op):
                        for target in targets:
                             try:
                                cl.CloneContactProfile(target)
-                               cl.sendText(msg.to, "Copied.")
+                               cl.sendText(msg.to, "เลียนแบบสำเร็จ")
                             except Exception as e:
                                 print e
-            elif msg.text in ["Mybackup","mybackup"]:
+            elif msg.text in ["Mybackup","คืนร่าง"]:
                 try:
                     cl.updateDisplayPicture(backup.pictureStatus)
                     cl.updateProfile(backup)
-                    cl.sendText(msg.to, "Refreshed.")
+                    cl.sendText(msg.to, "คืนร่างเรียบร้อย")
                 except Exception as e:
                     cl.sendText(msg.to, str(e))
 #==============================================================================#
@@ -2357,7 +2371,7 @@ def bot(op):
                           except Exception as e:
                               cl.sendText(msg.to, str(e))
                               
-            elif "Music " in msg.text:
+            elif "ขอเพลง " in msg.text:
                 try:
                     songname = msg.text.lower().replace("Music ","")
                     params = {'songname': songname}
@@ -2482,7 +2496,7 @@ def bot(op):
 
             elif cms(msg.text,["/creator","Creator"]):
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033"}
+                msg.contentMetadata = {'mid': "ub14f769cdf42d8c8a618ebe91ac2c8c7"}
                 cl.sendMessage(msg)
 
             #elif msg.text in ["puy"]:
@@ -2587,7 +2601,7 @@ def bot(op):
                         except:
                             creator = "Error"
                 
-            elif msg.text in ["Friendlist"]:    
+            elif msg.text in ["เพื่อน"]:    
                 contactlist = cl.getAllContactIds()
                 kontak = cl.getContacts(contactlist)
                 num=1
@@ -3008,7 +3022,7 @@ def bot(op):
                 
             elif msg.text.lower() == '.....':
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ua7fb5762d5066629323d113e1266e8ca',"}
+                msg.contentMetadata = {'mid': "u94a1bc387b927e86756334648d314f86',"}
                 cl.sendMessage(msg)    
 #=================================PUY SCRIPT FINISHED =============================================#
             
