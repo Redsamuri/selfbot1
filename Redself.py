@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ช# -*- coding: utf-8 -*-
 
 import PUY
 from PUY.lib.curve.ttypes import *
@@ -26,7 +26,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpmsg ="""╔═════════════
-(╣••ґ̰̰̈́é∂̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́••╣)
+╣(Redsamuri selfbot)
 ║═════════════
 ╠-> google (text)
 ╠-> playstore (text)
@@ -584,7 +584,7 @@ def bot(op):
                     cl.sendChatChecked(msg.from_,msg.id)
                 else:
                     cl.sendChatChecked(msg.to,msg.id)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
                 if wait["wblack"] == True:
@@ -1272,7 +1272,7 @@ def bot(op):
 
 #==============================================================================#
             elif msg.text in ["ดึง"]:
-                wait["invite"] = True
+                wait["ricoinvite"] = True
                 cl.sendText(msg.to,"ส่งคทมาเลยลูกพี่")
             
             elif msg.text in ["อ่านคท"]:
@@ -1312,6 +1312,90 @@ def bot(op):
                     wait["likeOn"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"ตามนั้น")
+            elif msg.text in ["Allprotect on","เปิดหมด"]:
+              if msg.from_ in admin:
+                if wait["inviteprotect"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah on (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+                else:
+                    wait["inviteprotect"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect invite on (Mask)")
+                if wait["cancelprotect"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah on (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+                else:
+                    wait["cancelprotect"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect cancel on (Mask)")
+                if wait["protect"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah on (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+                else:
+                    wait["protect"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect on (Mask)")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+                if wait["linkprotect"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah on (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+                else:
+                    wait["linkprotect"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect QR on (Mask)")
+                    else:
+                        cl.sendText(msg.to,"Already on")
+            elif msg.text in ["Allprotect off","ปิดหมด"]:
+              if msg.from_ in admin:
+                if wait["inviteprotect"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah off (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already off")
+                else:
+                    wait["inviteprotect"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect invite off (Mask)")
+                if wait["cancelprotect"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah off (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already off")
+                else:
+                    wait["cancelprotect"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect cancel off (Mask)")
+                if wait["protect"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah off (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already off")
+                else:
+                    wait["protect"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect off (Mask)")
+                    else:
+                        cl.sendText(msg.to,"Already off")
+                if wait["linkprotect"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Ini sudah off (Mask)👈")
+                    else:
+                        cl.sendText(msg.to,"Already off")
+                else:
+                    wait["linkprotect"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protect QR off (Mask)")
+                    else:
+                        cl.sendText(msg.to,"Already off")
                         
             elif msg.text in ["Simisimi on","Simisimi:on"]:
                 settings["simiSimi"][msg.to] = True
@@ -1405,7 +1489,7 @@ def bot(op):
                 midd = msg.text.replace("Kick: ","")
                 cl.kickoutFromGroup(msg.to,[midd])
             
-            elif 'invite ' in msg.text.lower():
+            elif 'ดึง ' in msg.text.lower():
                     key = msg.text[-33:]
                     cl.findAndAddContactsByMid(key)
                     cl.inviteIntoGroup(msg.to, [key])
@@ -2048,23 +2132,25 @@ def bot(op):
                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                 cl.sendText(msg.to,path)
             elif "เลียนแบบ @" in msg.text:
-                   print "[COPY] Ok"
-                   _name = msg.text.replace("Mycopy @","")
-                   _nametarget = _name.rstrip('  ')
-                   gs = cl.getGroup(msg.to)
-                   targets = []
-                   for g in gs.members:
-                       if _nametarget == g.displayName:
-                           targets.append(g.mid)
-                   if targets == []:
-                       cl.sendText(msg.to, "Not Found...")
-                   else:
-                       for target in targets:
-                            try:
-                               cl.CloneContactProfile(target)
-                               cl.sendText(msg.to, "เลียนแบบสำเร็จ")
-                            except Exception as e:
-                                print e
+                if msg.toType == 2:
+                    if msg.from_ in admin:
+                        print "[COPY] Ok"
+                        _name = msg.text.replace("Mycopy @","")
+                        _nametarget = _name.rstrip('  ')
+                        gs = cl.getGroup(msg.to)
+                        targets = []
+                        for g in gs.members:
+                            if _nametarget == g.displayName:
+                                targets.append(g.mid)
+                        if targets == []:
+                            cl.sendText(msg.to, "ไม่สำเร็จ...")
+                        else:
+                            for target in targets:
+                                try:
+                                    cl.cloneContactProfile(target)
+                                    cl.sendText(msg.to, "เลียนแบบสำเร็จ")
+                                except Exception as e:
+                                    print e
             elif msg.text in ["Mybackup","คืนร่าง"]:
                 try:
                     cl.updateDisplayPicture(backup.pictureStatus)
@@ -2496,7 +2582,7 @@ def bot(op):
 
             elif cms(msg.text,["/creator","Creator"]):
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ub14f769cdf42d8c8a618ebe91ac2c8c7"}
+                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033"}
                 cl.sendMessage(msg)
 
             #elif msg.text in ["puy"]:
@@ -2505,7 +2591,7 @@ def bot(op):
           #      kk.sendText(msg.to,"Puy here")
           #      cl.sendText(msg.to,"Hadir semua puy!")
 
-            elif msg.text in ["Masuk","...","Join kuy"]: #Panggil Semua Bot
+            elif msg.text in ["Masuk","...","Join kuy"]:
               if msg.from_ in admin:
                 G = cl.getGroup(msg.to)
                 ginfo = cl.getGroup(msg.to)
@@ -2523,7 +2609,7 @@ def bot(op):
                 cl.updateGroup(G)
                 print "Semua Sudah Lengkap"
 
-            elif msg.text in ["Puy join"]:
+            elif msg.text in ["Red join"]:
               if msg.from_ in admin:
                   x = ki.getGroup(msg.to)
                   x.preventJoinByTicket = False
@@ -2536,7 +2622,7 @@ def bot(op):
                   ki.updateGroup(G)
                   Ticket = ki.reissueGroupTicket(msg.to)
 
-            elif "Clone " in msg.text:
+            elif "เลียนแบบ " in msg.text:
                 copy0 = msg.text.replace("Clone ","")
                 copy1 = copy0.lstrip()
                 copy2 = copy1.replace("@","")
@@ -3004,7 +3090,7 @@ def bot(op):
                 	
             elif msg.text in ["Attack"]:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ua7fb5762d5066629323d113e1266e8ca',"}
+                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033',"}
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
@@ -3022,7 +3108,7 @@ def bot(op):
                 
             elif msg.text.lower() == '.....':
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "u94a1bc387b927e86756334648d314f86',"}
+                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033',"}
                 cl.sendMessage(msg)    
 #=================================PUY SCRIPT FINISHED =============================================#
             
