@@ -14,15 +14,15 @@ from googletrans import Translator
 #JANGAN LUPA =>  sudo pip install bs4 => sudo pip install BeautifulSoup => sudo pip install urllib => sudo pip install requests => sudo pip install gTTS
 
 cl = PUY.LINE()
-cl.login(qr=True)
+cl.login(token="You token")
 cl.loginResult()
 
-print "\n[PRANK LOGIN SELESAI]"
+print "\n[RED LOGIN SELESAI]"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpmsg ="""╔═════════════
-(╣••℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́••╣)
+(╣••ŔèďBøť••╣)
 ║═════════════
 ╠-> google (text)
 ╠-> playstore (text)
@@ -142,7 +142,7 @@ helptranslate ="""
 KAC=[cl]
 mid = cl.getProfile().mid
 Bots=[mid]
-admin=["uac8e3eaf1eb2a55770bf10c3b2357c33"]
+admin=["You mid"]
 
 wait = {
     "likeOn":False,
@@ -159,7 +159,7 @@ wait = {
     'leaveRoom':True,
     'timeline':False,
     'autoAdd':True,
-    'message':"""TERIMAKASIH KAKAK SUDAH TAMBAHKAN SAYA SEBAGAI TEMAN""",
+    'message':"""THANG FOR ADD ME """,
     "lang":"JP",
     "comment":"",
     "commentOn":False,
@@ -438,11 +438,11 @@ def bot(op):
         if op.type == 24:
             if wait["leaveRoom"] == True:
                 cl.leaveRoom(op.param1)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == mid:
+                if msg.from_ == admin:
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
@@ -458,7 +458,7 @@ def bot(op):
             if msg.contentType == 16:
                 url = msg.contentMetadata["postEndUrl"]
                 cl.like(url[25:58], url[66:], likeType=1001)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.from_ in mimic["target"] and mimic["status"] == True and mimic["target"][msg.from_] == True:
                     text = msg.text
@@ -533,38 +533,38 @@ def bot(op):
                                       wait['invite'] = False
                                       break
             
-            #if msg.contentType == 13:
-            #    if wait["steal"] == True:
-            #        _name = msg.contentMetadata["displayName"]
-            #        copy = msg.contentMetadata["mid"]
-            #        groups = cl.getGroup(msg.to)
-            #        pending = groups.invitee
-            #        targets = []
-            #        for s in groups.members:
-            #            if _name in s.displayName:
-            #                print "[Target] Stealed"
-            #                break                             
-            #            else:
-            #                targets.append(copy)
-            #        if targets == []:
-            #            pass
-            #        else:
-            #            for target in targets:
-            #                try:
-            #                    cl.findAndAddContactsByMid(target)
-            #                    contact = cl.getContact(target)
-            #                    cu = cl.channel.getCover(target)
-            #                    path = str(cu)
-            #                    image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-            #                    cl.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nBio :\n" + contact.statusMessage)
-            #                    cl.sendText(msg.to,"Profile Picture " + contact.displayName)
-            #                    cl.sendImageWithURL(msg.to,image)
-            #                    cl.sendText(msg.to,"Cover " + contact.displayName)
-            #                    cl.sendImageWithURL(msg.to,path)
-            #                    wait["steal"] = False
-            #                    break
-            #                except:
-            #                        pass    
+            if msg.contentType == 13:
+                if wait["steal"] == True:
+                    _name = msg.contentMetadata["displayName"]
+                    copy = msg.contentMetadata["mid"]
+                    groups = cl.getGroup(msg.to)
+                    pending = groups.invitee
+                    targets = []
+                    for s in groups.members:
+                        if _name in s.displayName:
+                            print "[Target] Stealed"
+                            break                             
+                        else:
+                            targets.append(copy)
+                    if targets == []:
+                        pass
+                    else:
+                        for target in targets:
+                            try:
+                                cl.findAndAddContactsByMid(target)
+                                contact = cl.getContact(target)
+                                cu = cl.channel.getCover(target)
+                                path = str(cu)
+                                image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+                                cl.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nBio :\n" + contact.statusMessage)
+                                cl.sendText(msg.to,"Profile Picture " + contact.displayName)
+                                cl.sendImageWithURL(msg.to,image)
+                                cl.sendText(msg.to,"Cover " + contact.displayName)
+                                cl.sendImageWithURL(msg.to,path)
+                                wait["steal"] = False
+                                break
+                            except:
+                                    pass    
                                 
             if wait["alwayRead"] == True:
                 if msg.toType == 0:
@@ -663,11 +663,11 @@ def bot(op):
                     cl.sendText(msg.to,helptranslate)
                 else:
                     cl.sendText(msg.to,helptranslate)
-            #elif msg.text in ["Sp","Speed","speed"]:
-            #    start = time.time()
-            #    cl.sendText(msg.to, "「Come Here」")
-            #    elapsed_time = time.time() - start
-            #    cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+            elif msg.text in ["Sp","Speed","speed"]:
+                start = time.time()
+                cl.sendText(msg.to, "「Come Here」")
+                elapsed_time = time.time() - start
+                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
                 
             elif msg.text == ".Speed":
                     cl.sendText(msg.to,"「Come Here」")
@@ -934,7 +934,7 @@ def bot(op):
                 cl.sendMessage(msg)
             elif cms(msg.text,["creator","Creator"]):
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ub14f769cdf42d8c8a618ebe91ac2c8c7"}
+                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033"}
                 cl.sendMessage(msg)
                 kk.sendMessage(msg)
             elif msg.text.lower() == 'autoadd on':
@@ -2482,7 +2482,7 @@ def bot(op):
 
             elif cms(msg.text,["/creator","Creator"]):
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "ub14f769cdf42d8c8a618ebe91ac2c8c7"}
+                msg.contentMetadata = {'mid': "ub5abe828cd964292195c3c59d6322033"}
                 cl.sendMessage(msg)
 
             #elif msg.text in ["puy"]:
