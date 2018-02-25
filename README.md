@@ -1,29 +1,24 @@
-# DONE UPDATE 23_JANUARI_2018
+# DONE UPDATE 25_กุมภาพันธ์_2561
 
 # SELFBOT
 V2.1 editor_::
-Prankbots
-# PRANKBOTS
-![Prankbots](prankbots.png)
-V2.1 last update::
-15/01/2018
+Redbots
+# REDBOTS
+![Redbots](Redbots.png)
+V1.1 last update::
+25/02/2018
 # CONTACT OFFICIAL
 
 <a href="https://line.me/R/ti/p/%40gnh2780p"><img height="36" border="0" alt="Add Friend" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a>
 
 # LINE ME
 
-[ADD_LINE](http://line.me/ti/p/~adiputra.95)
-
-# TUTORIAL YOUTUBE
-[LIHAT_DISINI](https://youtu.be/j9VqQBZCcec)
-
-[@SUBCRABE](https://www.youtube.com/channel/UCycBrqSWEHdk-slnhUmGWiQ)
+[ADD_LINE](http://line.me/ti/p/~samuri5)
 
 
 THANKS TO.
 
 ```Allah swt.
-Prankbots
+Redbots
 Black of gamer
 Dan kawan-Kawan```
