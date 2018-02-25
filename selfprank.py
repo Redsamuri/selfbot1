@@ -26,7 +26,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpmsg ="""╔═════════════
-(╣••ґ̰̰̈́é∂̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́••╣)
+(╣•RedBot•╣)
 ║═════════════
 ╠-> google (text)
 ╠-> playstore (text)
@@ -477,7 +477,7 @@ def bot(op):
                     text = msg.text
                     if text is not None:
                         cl.sendText(msg.to,text)
-        if op.type == 25:
+        if op.type == 26:
             msg = op.message
             if msg.to in settings["simiSimi"]:
                 if settings["simiSimi"][msg.to] == True:
@@ -584,7 +584,7 @@ def bot(op):
                     cl.sendChatChecked(msg.from_,msg.id)
                 else:
                     cl.sendChatChecked(msg.to,msg.id)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
                 if wait["wblack"] == True:
