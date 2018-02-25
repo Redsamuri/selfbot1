@@ -20,7 +20,7 @@ class Talk:
   host = "gd2.line.naver.jp";
   port = 443;
 
-  UA = "Line/7.18.0 IOS\t7.14.0\tiPhone OS\t10.12.0"
+  UA = "Line/7.18.0 IOS\t7.18.0\tiPhone OS\t10.12.1"
   LA = "IOSIPAD\t7.18.0\tiPhone OS\t10.12.1"
 
   authToken = None
