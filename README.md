@@ -1,7 +1,7 @@
 # DONE UPDATE 25_กุมภาพันธ์_2561
 
 # SELFBOT
-V2.1 editor_::
+V1.1 editor_::
 Redbots
 # REDBOTS
 ![Redbots](Redbots.png)
